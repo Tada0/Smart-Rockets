@@ -14,7 +14,7 @@ class DNA:
                 self.genes.append(get_random_unit_vector())
                 # These vectors are already unit vectors, so in order to set new magnitude, there is no need to
                 # normalize them before multiplying by new magnitude
-                self.genes[i].multiply(0.1)
+                self.genes[i].multiply(0.2)
 
     def crossover(self, partner, lifespan):
         new_genes = []
@@ -28,11 +28,10 @@ class DNA:
         return DNA(lifespan, new_genes)
 
     def mutation(self):
-        for gene in self.genes:
-            random_number = random.randint(0, 99)
-            # Mutation rate 3%
-            if random_number < 3:
-                gene = get_random_unit_vector()
-                gene.multiply(0.1)
 
-
+        for i in range(len(self.genes) - 1):
+            random_number = random.randint(0, 990)
+            # Mutation rate 0.5%
+            if random_number < 5:
+                self.genes[i] = get_random_unit_vector()
+                self.genes[i].multiply(0.2)

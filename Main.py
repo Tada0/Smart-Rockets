@@ -19,9 +19,9 @@ clock = pygame.time.Clock()
 pygame.key.set_repeat(1, 250)
 screen.blit(surface, (0, 0))
 
-target = Target(SCREEN_WIDTH/2-32, 100)
-obstacle = Obstacle(440, SCREEN_HEIGHT/2, 400, 20)
-lifeSpan = 500
+target = Target(SCREEN_WIDTH/2, 100)
+obstacle = Obstacle(540, SCREEN_HEIGHT/2, 200, 20)
+lifeSpan = 450
 
 if __name__ == '__main__':
 

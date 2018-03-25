@@ -7,4 +7,4 @@ class Target:
         self.image = pygame.image.load('images/target.png')
 
     def show(self, screen):
-        screen.blit(self.image, (self.position.x, self.position.y))
+        screen.blit(self.image, (self.position.x-32, self.position.y))

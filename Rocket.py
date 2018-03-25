@@ -23,16 +23,18 @@ class Rocket:
 
     def update(self, count, target, obstacle):
 
-        d = math.sqrt(math.fabs(self.position.x - target.position.x) + math.fabs(self.position.y - target.position.y))
-        if d < 10:
+        d = math.sqrt(math.fabs(self.position.x - target.position.x + 32) + math.fabs(self.position.y - target.position.y + 32))
+        if d < 5:
             self.completed = True
             # +32 comes only from drawing issue, no problem with it :)
-            self.position.x = target.position.x + 32
-            self.position.y = target.position.y
+            #self.position.x = target.position.x - 1
+            #self.position.y = target.position.y
 
         if obstacle.rect.collidepoint((self.position.x, self.position.y)):
             self.crashed = True
-            self.position.y = 365
+
+        if self.position.x == 0 or self.position.x == 1280:
+            self.crashed = True
 
         self.apply_force(self.dna.genes[count])
 
@@ -48,7 +50,9 @@ class Rocket:
     def calculate_fitness(self, target):
         d = math.sqrt(math.fabs(self.position.x - target.position.x) + math.fabs(self.position.y - target.position.y))
         self.fitness = 1 / d
+
         if self.completed:
             self.fitness *= 10
+
         if self.crashed:
             self.fitness = 0
