@@ -21,7 +21,7 @@ screen.blit(surface, (0, 0))
 
 target = Target(SCREEN_WIDTH/2-32, 100)
 obstacle = Obstacle(440, SCREEN_HEIGHT/2, 400, 20)
-lifeSpan = 400
+lifeSpan = 500
 
 if __name__ == '__main__':
 
