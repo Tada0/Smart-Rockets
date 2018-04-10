@@ -22,10 +22,12 @@ screen.blit(surface, (0, 0))
 target = Target(SCREEN_WIDTH/2, 100)
 obstacle = Obstacle(540, SCREEN_HEIGHT/2, 200, 20)
 lifeSpan = 450
+population_number = 1
+population_size = 10000
 
 if __name__ == '__main__':
 
-    population = Population(SCREEN_WIDTH/2, SCREEN_HEIGHT, lifeSpan)
+    population = Population(SCREEN_WIDTH/2, SCREEN_HEIGHT, lifeSpan, population_size)
     count = 0
 
     while True:
@@ -41,9 +43,9 @@ if __name__ == '__main__':
 
         count += 1
         if count == lifeSpan:
+            population_number += 1
             population.evaluate(target)
             population.selection()
-            #population = Population(SCREEN_WIDTH/2, SCREEN_HEIGHT, lifeSpan)
             count = 0
 
         pygame.display.flip()

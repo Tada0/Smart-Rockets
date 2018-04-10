@@ -3,9 +3,9 @@ from Rocket import Rocket
 
 
 class Population:
-    def __init__(self, x, y, lifespan):
+    def __init__(self, x, y, lifespan, size):
         self.rockets = []
-        self.size = 25
+        self.size = size
         self.start_x = x
         self.start_y = y
         self.mating_pool = []

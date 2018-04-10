@@ -26,9 +26,6 @@ class Rocket:
         d = math.sqrt(math.fabs(self.position.x - target.position.x + 32) + math.fabs(self.position.y - target.position.y + 32))
         if d < 5:
             self.completed = True
-            # +32 comes only from drawing issue, no problem with it :)
-            #self.position.x = target.position.x - 1
-            #self.position.y = target.position.y
 
         if obstacle.rect.collidepoint((self.position.x, self.position.y)):
             self.crashed = True
